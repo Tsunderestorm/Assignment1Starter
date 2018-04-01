@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     // GLOBALS
     // Accelerometer
     private LineGraphSeries<DataPoint> timeAccelX = new LineGraphSeries<>();
+
+    // Step counter
+    private StepCounter stepCounter = new StepCounter();
     
     // Graph
     private GraphView graph1;
@@ -54,6 +57,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             DataPoint dataPointAccX = new DataPoint(accelGraphXTime, event.values[0]);
             timeAccelX.appendData(dataPointAccX, true, MAX_DATA_POINTS_UI_IMU);
 
+            // Add the original data to the StepCounter object
+            stepCounter.addDataPoint(event.values[0],
+                    event.values[1], event.values[1], event.values[2]);
 
             // Advance the graph
             graph1.getViewport().setMinX(accelGraphXTime-graphXBounds);
