@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     // GLOBALS
     // Accelerometer
     private LineGraphSeries<DataPoint> timeAccelX = new LineGraphSeries<>();
+    
     // Graph
     private GraphView graph1;
     private int graphXBounds = 100;
@@ -28,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             Color.argb(225, 50, 220, 100)};
     private static final int MAX_DATA_POINTS_UI_IMU = 100; // Adjust to show more points on graph
     public int accelGraphXTime = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
