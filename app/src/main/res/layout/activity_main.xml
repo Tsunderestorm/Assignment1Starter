@@ -9,9 +9,16 @@
 
     <com.jjoe64.graphview.GraphView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_weight="1"
         android:id="@+id/graph1"
         android:background="#fff"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:id="@+id/button1"
+        android:onClick="button1Action"/>
 
 </LinearLayout>

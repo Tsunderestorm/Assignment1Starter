@@ -8,6 +8,9 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
@@ -45,6 +48,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         Sensor accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_GAME);
+
+        // Alternative way to initialize button
+//        Button specialButton = findViewById(R.id.button1);
+//        specialButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d("ALEX", "YAY");
+//            }
+//        });
     }
 
     @Override
@@ -89,5 +101,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         timeAccelX.setColor(graphColor[0]);
         timeAccelX.setThickness(10);
         graph1.addSeries(timeAccelX);
+    }
+
+    public void button1Action(View v) {
+        Log.d("ALEX", "YAY");
     }
 }
