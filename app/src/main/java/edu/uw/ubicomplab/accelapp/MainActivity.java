@@ -1,21 +1,28 @@
 package edu.uw.ubicomplab.accelapp;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
@@ -104,6 +111,32 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     public void button1Action(View v) {
-        Log.d("ALEX", "YAY");
+        // Log statement
+        Log.d("ALEX", "This is a log message");
+
+        // Toast statement
+        Toast.makeText(this,
+                "This is a toast message", Toast.LENGTH_SHORT).show();
+
+        // Example TimerTask
+        Timer startTimer = new Timer();
+        TimerTask startTask = new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(),
+                                "This is a delayed toast message", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        };
+
+        // One-time task after a delay
+        startTimer.schedule(startTask, 1000);
+
+        // Periodically executed task after a delay
+        startTimer.scheduleAtFixedRate(startTask, 1000, 1000);
     }
 }
