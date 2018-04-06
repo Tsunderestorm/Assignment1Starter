@@ -135,8 +135,5 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         // One-time task after a delay
         startTimer.schedule(startTask, 1000);
-
-        // Periodically executed task after a delay
-        startTimer.scheduleAtFixedRate(startTask, 1000, 1000);
     }
 }
