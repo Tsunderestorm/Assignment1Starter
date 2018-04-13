@@ -8,14 +8,12 @@ public class StepCounter {
     private DescriptiveStatistics accelWindow = new DescriptiveStatistics(windowSize);
     public int stepCount = 0;
 
-    public void addDataPoint(float time, float ax, float ay, float az) {
+    public boolean addDataPoint(float time, float ax, float ay, float az) {
         // Calculate magnitude and add to window
         double amag = Math.sqrt(ax*ax + ay*ay + az*az);
         accelWindow.addValue(amag);
-    }
 
-    public boolean checkIfNewStep() {
-        return true;
+        return false;
     }
 
     public void reset() {

@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             timeAccelX.appendData(dataPointAccX, true, GRAPH_X_BOUNDS);
 
             // Add the original data to the StepCounter object
-            stepCounter.addDataPoint(event.values[0],
-                    event.values[1], event.values[1], event.values[2]);
+            stepCounter.addDataPoint(event.timestamp,
+                    event.values[0], event.values[1], event.values[2]);
 
             // Advance the graph
             graph1.getViewport().setMinX(accelGraphXTime - GRAPH_X_BOUNDS);
